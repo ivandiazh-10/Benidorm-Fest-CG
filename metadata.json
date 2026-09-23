@@ -1,0 +1,6 @@
+{
+  "name": "LiveFest Broadcast Graphics Control",
+  "description": "Professional television broadcast graphics control room and on-air scoring engine for live music competitions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

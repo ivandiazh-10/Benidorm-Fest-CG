@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-display: 'Oswald', 'Chakra Petch', sans-serif;
+    --font-heavy: 'Montserrat', 'Syne', sans-serif;
+    --font-broadcast: 'Chakra Petch', 'Oswald', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+}
+
+.font-broadcast {
+  font-family: var(--font-broadcast);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-heavy {
+  font-family: var(--font-heavy);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Benidorm Fest Geometric Chamfers */
+.clip-chamfer-both {
+  clip-path: polygon(18px 0%, 100% 0%, calc(100% - 18px) 100%, 0% 100%);
+}
+
+.clip-chamfer-left {
+  clip-path: polygon(18px 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.clip-chamfer-right {
+  clip-path: polygon(0% 0%, 100% 0%, calc(100% - 18px) 100%, 0% 100%);
+}
+
+.clip-chevron-up {
+  clip-path: polygon(50% 0%, 100% 50%, 80% 50%, 50% 20%, 20% 50%, 0% 50%);
+}
+
+/* Benidorm Fest Chamfered Slanted Polygon & Skew Utility */
+.chamfer-slant {
+  transform: skewX(-20deg);
+}
+
+.chamfer-unslant {
+  transform: skewX(20deg);
+}
+
+.chamfer-slant-reverse {
+  transform: skewX(20deg);
+}
+
+.chamfer-unslant-reverse {
+  transform: skewX(-20deg);
+}
+
+/* =========================================================================
+   MASTER BROADCAST GRAPHIC TYPOGRAPHY HIERARCHY
+   Strict 6-tier baseline-aligned typography system for broadcast graphics:
+   DISPLAY | TITLE | SUBTITLE | BODY | LABEL | MICRO
+   ========================================================================= */
+.typo-display {
+  font-family: var(--font-heavy);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  line-height: 1;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.typo-title {
+  font-family: var(--font-heavy);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.typo-subtitle {
+  font-family: var(--font-broadcast);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  line-height: 1.15;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.typo-body {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  line-height: 1.35;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.typo-label {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.typo-micro {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+  line-height: 1;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hardware accelerated smooth motion and GPU layer promotion */
+.gpu-accel,
+.gpu-layer {
+  will-change: transform, clip-path;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Broadcast Motion Easing CSS Tokens */
+:root {
+  /* Master Broadcast Motion Easing Curve Library */
+  --ease-broadcast: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-broadcast-fast: cubic-bezier(0.12, 1, 0.24, 1);
+  --ease-broadcast-slow: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-broadcast-exit: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-broadcast-settle: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-broadcast-linear-in: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --ease-broadcast-ranking: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-broadcast-text: cubic-bezier(0.2, 0.95, 0.3, 1);
+  --ease-broadcast-accent: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Legacy aliases for backward compatibility */
+  --ease-settle: var(--ease-broadcast-settle);
+  --ease-exit: var(--ease-broadcast-exit);
+}
+
+/* Custom broadcast scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+::-webkit-scrollbar-thumb {
+  background: #21262d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #30363d;
+}
+
+/* Light sheen / sweep effect across active scoreboard rows */
+@keyframes sheenSweep {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-sheen {
+  animation: sheenSweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Subtle broadcast stage light pulsing */
+@keyframes stagePulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.04); }
+}
+
+.animate-stage-pulse {
+  animation: stagePulse 8s ease-in-out infinite;
+}
+
